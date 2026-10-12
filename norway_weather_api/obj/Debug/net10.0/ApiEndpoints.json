@@ -1,0 +1,23 @@
+[
+  {
+    "ContainingType": "norway_weather_api.Controllers.WeatherController",
+    "Method": "GetWeather",
+    "RelativePath": "api/Weather",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Latitude",
+        "Type": "System.Nullable\u00601[[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Longitude",
+        "Type": "System.Nullable\u00601[[System.Double, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

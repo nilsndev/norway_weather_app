@@ -1,0 +1,64 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "norway_weather_api | v1",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:7039"
+    },
+    {
+      "url": "http://localhost:5233"
+    }
+  ],
+  "paths": {
+    "/api/Weather": {
+      "get": {
+        "tags": [
+          "Weather"
+        ],
+        "parameters": [
+          {
+            "name": "Latitude",
+            "in": "query",
+            "schema": {
+              "maximum": 90,
+              "minimum": -90,
+              "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?$",
+              "type": [
+                "number",
+                "string"
+              ],
+              "format": "double"
+            }
+          },
+          {
+            "name": "Longitude",
+            "in": "query",
+            "schema": {
+              "maximum": 180,
+              "minimum": -180,
+              "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?$",
+              "type": [
+                "number",
+                "string"
+              ],
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Weather"
+    }
+  ]
+}

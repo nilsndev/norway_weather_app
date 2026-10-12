@@ -125,7 +125,7 @@
               "RelativeDocumentMoniker": "Services\\WeatherService.cs",
               "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\WeatherService.cs",
               "RelativeToolTip": "Services\\WeatherService.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAMwBYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAqwCQAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-12T06:53:40.884Z",
               "EditorCaption": ""
@@ -138,7 +138,7 @@
               "RelativeDocumentMoniker": "Controllers\\WeatherController.cs",
               "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Controllers\\WeatherController.cs",
               "RelativeToolTip": "Controllers\\WeatherController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAIwC4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwCkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-12T06:51:39.046Z",
               "EditorCaption": ""
@@ -149,9 +149,9 @@
               "Title": "IWeatherService.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\IWeatherService.cs",
               "RelativeDocumentMoniker": "Services\\IWeatherService.cs",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\IWeatherService.cs*",
-              "RelativeToolTip": "Services\\IWeatherService.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAuAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\IWeatherService.cs",
+              "RelativeToolTip": "Services\\IWeatherService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-12T06:52:56.821Z",
               "EditorCaption": ""

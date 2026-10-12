@@ -22,6 +22,17 @@ builder.Services.AddHttpClient<IWeatherService, WeatherService>(
             $"norway_weather_api/1.0 (contact: {email})");
     });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("VueApp", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -31,6 +42,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+
+app.UseCors("VueApp");
+
 app.MapControllers();
 
 app.Run();

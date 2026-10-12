@@ -1,46 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\",
+  "WorkspaceRootPath": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_api\\dtos\\weatherrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|solutionrelative:dtos\\weatherrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_api\\controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|solutionrelative:controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_api\\services\\iweatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|solutionrelative:services\\iweatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\services\\iweatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:services\\iweatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_api\\services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|solutionrelative:services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\dtos\\weatherresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:dtos\\weatherresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\dtos\\weatherrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:dtos\\weatherrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_api\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_api\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_api\\norway_weather_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{B95C7390-5AD1-4016-ACBA-58A71761036D}|norway_weather_api.csproj|solutionrelative:norway_weather_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\norway_weather_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:norway_weather_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,19 +54,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\Properties\\launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Properties\\launchSettings.json",
               "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -71,78 +71,74 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\.gitignore",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\.gitignore",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\.gitignore",
               "RelativeToolTip": ".gitignore",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-10-12T07:13:50.292Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T07:13:50.292Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": ".env",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\.env",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\.env",
               "RelativeDocumentMoniker": ".env",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\.env",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\.env",
               "RelativeToolTip": ".env",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-10-12T07:13:41.027Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T07:13:41.027Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\appsettings.json",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-10-12T07:12:48.306Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T07:12:48.306Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\Program.cs",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAiwAsAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T06:56:35.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T06:56:35.302Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "WeatherService.cs",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\Services\\WeatherService.cs",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\WeatherService.cs",
               "RelativeDocumentMoniker": "Services\\WeatherService.cs",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\Services\\WeatherService.cs",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\WeatherService.cs",
               "RelativeToolTip": "Services\\WeatherService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAIwBcAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAqwCQAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-12T06:53:40.884Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "WeatherController.cs",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\Controllers\\WeatherController.cs",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Controllers\\WeatherController.cs",
               "RelativeDocumentMoniker": "Controllers\\WeatherController.cs",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\Controllers\\WeatherController.cs",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Controllers\\WeatherController.cs",
               "RelativeToolTip": "Controllers\\WeatherController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAwwBwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwCkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-12T06:51:39.046Z",
               "EditorCaption": ""
@@ -151,40 +147,52 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "IWeatherService.cs",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\Services\\IWeatherService.cs",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\IWeatherService.cs",
               "RelativeDocumentMoniker": "Services\\IWeatherService.cs",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\Services\\IWeatherService.cs",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\IWeatherService.cs",
               "RelativeToolTip": "Services\\IWeatherService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-12T06:52:56.821Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "WeatherResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\DTOs\\WeatherResponseDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\WeatherResponseDto.cs",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\DTOs\\WeatherResponseDto.cs",
+              "RelativeToolTip": "DTOs\\WeatherResponseDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwAwAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-12T15:36:34.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "WeatherRequestDto.cs",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\DTOs\\WeatherRequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\DTOs\\WeatherRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\WeatherRequestDto.cs",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\DTOs\\WeatherRequestDto.cs",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\DTOs\\WeatherRequestDto.cs",
               "RelativeToolTip": "DTOs\\WeatherRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-12T06:46:52.699Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "norway_weather_api",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\norway_weather_api.csproj",
+              "DocumentIndex": 10,
+              "Title": "norway_weather_api.csproj",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\norway_weather_api.csproj",
               "RelativeDocumentMoniker": "norway_weather_api.csproj",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_api\\norway_weather_api.csproj",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\norway_weather_api.csproj",
               "RelativeToolTip": "norway_weather_api.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-10-12T06:44:16.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T06:44:16.464Z"
             }
           ]
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using norway_weather_api.DTOs;
 using norway_weather_api.Services;
 
@@ -15,14 +16,29 @@ namespace norway_weather_api.Controllers
             _weatherService = weatherService;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetWeather([FromQuery] WeatherRequestDto request)
+        [HttpGet("current")]
+        public async Task<IActionResult> GetCurrentWeather(
+            [FromQuery] WeatherRequestDto request)
         {
-            var weather = await _weatherService.GetWeatherAsync(
-            request.Latitude!.Value,
-            request.Longitude!.Value);
+            var weather = await _weatherService.GetCurrentWeatherAsync(
+                request.Latitude!.Value,
+                request.Longitude!.Value);
 
-            return Content(weather, "application/json");
+            if (weather == null)
+                return NotFound("No weather data available.");
+
+            return Ok(weather);
+        }
+
+        [HttpGet("forecast")]
+        public async Task<IActionResult> GetForecast(
+            [FromQuery] WeatherRequestDto request)
+        {
+            var forecast = await _weatherService.GetForecastAsync(
+                request.Latitude!.Value,
+                request.Longitude!.Value);
+
+            return Ok(forecast);
         }
     }
 }

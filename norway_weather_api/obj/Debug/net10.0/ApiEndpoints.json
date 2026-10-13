@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "norway_weather_api.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "api/Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "norway_weather_api.DTOs.RegisterRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "norway_weather_api.Controllers.WeatherController",
     "Method": "GetCurrentWeather",
     "RelativePath": "api/Weather/current",

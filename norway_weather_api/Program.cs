@@ -1,6 +1,10 @@
 
 using DotNetEnv;
 using norway_weather_api.Services;
+using norway_weather_api.Data;
+using Microsoft.AspNetCore.Identity;
+using norway_weather_api.Models;
+using Microsoft.EntityFrameworkCore;
 
 Env.Load();
 
@@ -8,6 +12,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+
+var connectionString =
+    Environment.GetEnvironmentVariable("POSTGRES_CONNECTION_STRING")
+    ?? throw new InvalidOperationException(
+        "POSTGRES_CONNECTION_STRING is missing.");
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseNpgsql(connectionString);
+});
+
+builder.Services
+    .AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 
 var email = Environment.GetEnvironmentVariable("METNO_CONTACT_EMAIL")
     ?? throw new InvalidOperationException(
@@ -21,6 +40,8 @@ builder.Services.AddHttpClient<IWeatherService, WeatherService>(
         client.DefaultRequestHeaders.UserAgent.ParseAdd(
             $"norway_weather_api/1.0 (contact: {email})");
     });
+
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 builder.Services.AddCors(options =>
 {
@@ -37,10 +58,12 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.MapOpenApi(); 
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseCors("VueApp");

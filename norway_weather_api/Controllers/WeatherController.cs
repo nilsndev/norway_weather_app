@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using norway_weather_api.DTOs;
 using norway_weather_api.Services;
@@ -16,6 +17,7 @@ namespace norway_weather_api.Controllers
             _weatherService = weatherService;
         }
 
+        [Authorize]
         [HttpGet("current")]
         public async Task<IActionResult> GetCurrentWeather(
             [FromQuery] WeatherRequestDto request)
@@ -30,6 +32,7 @@ namespace norway_weather_api.Controllers
             return Ok(weather);
         }
 
+        [Authorize]
         [HttpGet("forecast")]
         public async Task<IActionResult> GetForecast(
             [FromQuery] WeatherRequestDto request)

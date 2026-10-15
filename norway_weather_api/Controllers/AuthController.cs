@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using norway_weather_api.Services;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using norway_weather_api.DTOs;
+using norway_weather_api.Services;
+using System.Security.Claims;
 
 namespace norway_weather_api.Controllers
 {
@@ -9,10 +12,12 @@ namespace norway_weather_api.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;
+        private readonly ITokenService _tokenService;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IAuthService authService, ITokenService tokenService)
         {
             _authService = authService;
+            _tokenService = tokenService;
         }
 
         [HttpPost("register")]
@@ -25,6 +30,41 @@ namespace norway_weather_api.Controllers
             }
 
             return Ok("User registered successfully.");
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequestDto request){
+             var user = await _authService.LoginAsync(request);
+
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            var token = _tokenService.CreateToken(user);
+
+            return Ok(new
+            {
+                token
+            });
+        }
+
+        [Authorize]
+        [HttpGet("me")]
+        public async Task<IActionResult> Me()
+        {
+            var user = await _authService.GetCurrentUserAsync(User);
+
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(new
+            {
+                user.Id,
+                user.Email
+            });
         }
     }
 }

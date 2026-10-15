@@ -201,7 +201,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "http",
-        "description": "Lim inn JWT-tokenet fra /api/auth/login.",
+        "description": "Paste JWT-token from /api/auth/login.",
         "scheme": "bearer",
         "bearerFormat": "JWT"
       }

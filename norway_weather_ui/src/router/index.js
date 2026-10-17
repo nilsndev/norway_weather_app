@@ -3,6 +3,7 @@ import { useAuthStore } from '../stores/auth'
 
 import MainLayout from '../layouts/MainLayout.vue'
 import HomeView from '../views/HomeView.vue'
+import CitiesView from '@/views/CitiesView.vue'
 import MapView from '../views/MapView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
@@ -20,6 +21,11 @@ const router = createRouter({
           path: '/',
           name: 'home',
           component: HomeView,
+        },
+        {
+          path: '/cities',
+          name: 'cities',
+          component: CitiesView
         },
         {
           path: '/map',

@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\norway_weather_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:norway_weather_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,14 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\docker-compose.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}",
-      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:docker-compose.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\.env||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|solutionrelative:.env||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{02A02E11-096D-A8E2-FB63-0CBFA0E6B8C5}|norway_weather_api.csproj|c:\\users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -81,25 +77,50 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 292,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 373,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T06:56:35.302Z",
+              "DocumentIndex": 0,
+              "Title": "norway_weather_api",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\norway_weather_api.csproj",
+              "RelativeDocumentMoniker": "norway_weather_api.csproj",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\norway_weather_api.csproj",
+              "RelativeToolTip": "norway_weather_api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-17T07:28:17.234Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Services\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\IAuthService.cs",
+              "RelativeToolTip": "Services\\IAuthService.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAQwAwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T12:59:07.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswA4AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T13:03:33.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
@@ -111,33 +132,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Services\\IAuthService.cs",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\IAuthService.cs",
-              "RelativeToolTip": "Services\\IAuthService.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAQwAwAAAAuAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T12:59:07.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T06:56:35.302Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAswBAAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T13:03:33.418Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "LoginRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\DTOs\\LoginRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\LoginRequestDto.cs",
@@ -150,18 +157,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": ".env",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\.env",
-              "RelativeDocumentMoniker": ".env",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\.env",
-              "RelativeToolTip": ".env",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-10-13T12:42:24.71Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "ApplicationDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Migrations\\ApplicationDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "Migrations\\ApplicationDbContextModelSnapshot.cs",
@@ -173,19 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "docker-compose.yml",
-              "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\docker-compose.yml",
-              "RelativeDocumentMoniker": "docker-compose.yml",
-              "ToolTip": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\docker-compose.yml",
-              "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2026-10-13T12:39:57.046Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "WeatherService.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\WeatherService.cs",
               "RelativeDocumentMoniker": "Services\\WeatherService.cs",
@@ -197,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -209,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "IWeatherService.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\IWeatherService.cs",
               "RelativeDocumentMoniker": "Services\\IWeatherService.cs",
@@ -221,7 +204,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "WeatherResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\DTOs\\WeatherResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\WeatherResponseDto.cs",
@@ -233,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "WeatherRequestDto.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\DTOs\\WeatherRequestDto.cs",
               "RelativeDocumentMoniker": "DTOs\\WeatherRequestDto.cs",
@@ -246,12 +229,12 @@
           ]
         },
         {
-          "DockedWidth": 108,
+          "DockedWidth": 27,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -264,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\TokenService.cs",
               "RelativeDocumentMoniker": "Services\\TokenService.cs",
@@ -272,12 +255,11 @@
               "RelativeToolTip": "Services\\TokenService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T08:00:39.079Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-14T08:00:39.079Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "WeatherController.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Controllers\\WeatherController.cs",
               "RelativeDocumentMoniker": "Controllers\\WeatherController.cs",
@@ -285,12 +267,11 @@
               "RelativeToolTip": "Controllers\\WeatherController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAqwBQAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-12T06:51:39.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-12T06:51:39.046Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Services\\AuthService.cs",
@@ -298,12 +279,11 @@
               "RelativeToolTip": "Services\\AuthService.cs",
               "ViewState": "AgIAAB8AAAAAAAAAAAAwwDAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-13T12:59:48.652Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-13T12:59:48.652Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ITokenService.cs",
               "DocumentMoniker": "C:\\Users\\nilsn\\source\\repos\\norway_weather_app\\norway_weather_api\\Services\\ITokenService.cs",
               "RelativeDocumentMoniker": "Services\\ITokenService.cs",

@@ -38,18 +38,11 @@ async function selectPosition(latitude, longitude) {
       latitude: String(latitude),
       longitude: String(longitude),
     })
-    /*
-    const [currentResponse, forecastResponse] = await Promise.all([
-      api.get(`/weather/current?${query}`),
-      api.get(`/weather/forecast?${query}`),
-    ])
-    */
 
     const currentResponse = await api.get(`/weather/current?${query}`);
     const currentWeather = currentResponse.data
     console.log('Current weather:', currentWeather)
-    //const forecast = forecastResponse.data
-    //console.log('24-hour forecast:', forecast)
+
     
   } catch (error) {
     console.error('Failed to fetch weather:', error)

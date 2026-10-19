@@ -34,6 +34,8 @@ builder.Services.AddSwaggerGen(options =>
     options.OperationFilter<JwtSecurityOperationFilter>();
 });
 
+builder.Services.AddMemoryCache();
+
 var connectionString =
     Environment.GetEnvironmentVariable("POSTGRES_CONNECTION_STRING")
     ?? throw new InvalidOperationException(

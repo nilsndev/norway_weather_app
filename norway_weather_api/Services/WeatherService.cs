@@ -1,6 +1,7 @@
 ﻿
 using System.Globalization;
 using System.Text.Json;
+using Microsoft.Extensions.Caching.Memory;
 using norway_weather_api.DTOs;
 
 namespace norway_weather_api.Services
@@ -8,10 +9,14 @@ namespace norway_weather_api.Services
     public class WeatherService : IWeatherService
     {
         private readonly HttpClient _httpClient;
+        private readonly IMemoryCache _cache;
 
-        public WeatherService(HttpClient httpClient)
+        private static readonly TimeSpan CacheDuration = TimeSpan.FromMinutes(25);
+
+        public WeatherService(HttpClient httpClient, IMemoryCache cache)
         {
             _httpClient = httpClient;
+            _cache = cache;
         }
 
         public async Task<WeatherResponseDto?> GetCurrentWeatherAsync(
@@ -45,11 +50,23 @@ namespace norway_weather_api.Services
         private async Task<List<WeatherResponseDto>> GetAllForecastsAsync(
             double latitude, double longitude)
         {
-            var lat = latitude.ToString(CultureInfo.InvariantCulture);
-            var lon = longitude.ToString(CultureInfo.InvariantCulture);
+            var lat = Math.Round(latitude, 4);
+            var lon = Math.Round(longitude, 4);
+
+            var cacheKey = string.Create(
+                CultureInfo.InvariantCulture,
+                $"weather:{lat:F4}:{lon:F4}");
+
+            var cached = _cache.Get<List<WeatherResponseDto>>(cacheKey);
+
+            if (cached is not null)
+                return cached;
+
+            var latText = lat.ToString(CultureInfo.InvariantCulture);
+            var lonText = lon.ToString(CultureInfo.InvariantCulture);
 
             var url =
-                $"weatherapi/locationforecast/2.0/compact?lat={lat}&lon={lon}";
+                $"weatherapi/locationforecast/2.0/compact?lat={latText}&lon={lonText}";
 
             using var response = await _httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
@@ -61,9 +78,19 @@ namespace norway_weather_api.Services
                 .GetProperty("properties")
                 .GetProperty("timeseries");
 
-            return timeseries.EnumerateArray()
+            var forecasts = timeseries.EnumerateArray()
                 .Select(MapForecast)
                 .ToList();
+
+            _cache.Set(
+                cacheKey,
+                forecasts,
+                new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = CacheDuration
+                });
+
+            return forecasts;
         }
 
         private static WeatherResponseDto MapForecast(JsonElement forecast)

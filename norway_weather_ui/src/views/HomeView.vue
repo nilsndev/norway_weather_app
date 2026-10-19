@@ -81,23 +81,23 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main class="min-h-screen bg-blue-50 p-6 text-slate-800 md:p-8">
+  <main class="min-h-screen bg-slate-50 p-4 text-slate-800 sm:p-6 lg:p-8">
 
     <div class="mx-auto max-w-5xl">
 
-      <header class="mb-8">
+      <header class="mb-6">
         <p class="text-sm font-medium text-slate-500">
-          Weather
+          Norway Weather
         </p>
 
-        <h1 class="mt-1 text-3xl font-bold">
+        <h1 class="mt-1 text-2xl font-semibold tracking-tight text-slate-900">
           {{ city.name }}
         </h1>
       </header>
 
       <div
         v-if="loading"
-        class="rounded-2xl bg-white p-8 text-center shadow-sm"
+        class="rounded-2xl bg-white p-8 text-center shadow-sm ring-1 ring-slate-200"
       >
         <p class="animate-pulse text-slate-500">
           Get weather data...
@@ -106,7 +106,7 @@ onMounted(async () => {
 
       <div
         v-else-if="errorMessage"
-        class="rounded-2xl bg-white p-6 text-red-600 shadow-sm"
+        class="rounded-2xl bg-white p-6 text-rose-700 shadow-sm ring-1 ring-slate-200"
       >
         {{ errorMessage }}
       </div>
@@ -114,9 +114,9 @@ onMounted(async () => {
       <template v-else-if="currentWeather">
 
         <section
-          class="rounded-3xl bg-gradient-to-br from-sky-500 to-blue-700 p-8 text-white shadow-md"
+          class="rounded-2xl bg-gradient-to-br from-sky-600 to-blue-700 p-6 text-white shadow-sm sm:p-8"
         >
-          <div class="flex items-center justify-between gap-4">
+          <div class="flex items-center justify-between gap-4 pt-5 pb-5">
 
             <div>
               <p class="text-lg text-blue-100">
@@ -127,14 +127,7 @@ onMounted(async () => {
                 {{ formatTemperature(currentWeather.temperature) }}
               </p>
 
-              <p class="mt-3 text-blue-100">
-                {{ currentWeather.weatherSymbol }}
-              </p>
-
-              <p class="mt-2 text-sm text-blue-100">
-                Vind:
-                {{ formatWind(currentWeather.windSpeed) }}
-              </p>
+       
             </div>
 
             <div class="text-7xl md:text-8xl">
@@ -144,7 +137,7 @@ onMounted(async () => {
           </div>
         </section>
 
-        <section class="mt-6 rounded-2xl bg-white p-6 shadow-sm">
+        <section class="mt-5 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6">
 
           <h2 class="mb-5 text-lg font-bold">
             Forecast
@@ -157,7 +150,7 @@ onMounted(async () => {
             <article
               v-for="(item, index) in forecast"
               :key="item.time ?? index"
-              class="flex min-w-24 flex-col items-center gap-3 rounded-xl bg-blue-50 px-4 py-5"
+              class="flex min-w-24 flex-col items-center gap-3 rounded-xl bg-sky-50 px-4 py-5"
             >
               <p class="text-sm text-slate-500">
                 {{ formatHour(item.time) }}
@@ -186,7 +179,7 @@ onMounted(async () => {
 
         </section>
 
-        <section class="mt-6 rounded-2xl bg-white p-6 shadow-sm">
+        <section class="mt-5 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6">
 
           <h2 class="mb-5 text-lg font-bold">
             Condition

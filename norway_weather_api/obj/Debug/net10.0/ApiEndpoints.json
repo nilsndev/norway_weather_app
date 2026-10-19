@@ -42,6 +42,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "norway_weather_api.Controllers.CityController",
+    "Method": "SearchCities",
+    "RelativePath": "api/City/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[norway_weather_api.DTOs.GeocodingResultDto, norway_weather_api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "norway_weather_api.Controllers.WeatherController",
     "Method": "GetCurrentWeather",
     "RelativePath": "api/Weather/current",

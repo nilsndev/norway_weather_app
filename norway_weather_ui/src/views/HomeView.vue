@@ -1,225 +1,55 @@
-
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import api from '../services/api'
+import LocationSearch from '../components/LocationSearch.vue'
 import { getWeatherEmoji } from '../helper/weather'
 import { formatWeatherTime } from '../helper/date_time'
 
-const city = ref({
-  name: 'Oslo',
-  latitude: 59.9139,
-  longitude: 10.7522
-})
-
+const city = ref({ name: 'Oslo', latitude: 59.9139, longitude: 10.7522 })
+const searchText = ref('')
 const currentWeather = ref(null)
 const forecast = ref([])
-const loading = ref(true)
+const loading = ref(false)
 const errorMessage = ref('')
+let requestId = 0
 
-async function getCurrentWeather(latitude, longitude) {
-  const query = new URLSearchParams({
-    latitude: String(latitude),
-    longitude: String(longitude)
-  })
-
-  const response = await api.get(`/weather/current?${query}`)
-  return response.data
-}
-
-async function getForecastWeather(latitude, longitude) {
-  const query = new URLSearchParams({
-    latitude: String(latitude),
-    longitude: String(longitude)
-  })
-
-  const response = await api.get(`/weather/forecast?${query}`)
-  return response.data
-}
-
-function formatHour(time) {
-  return formatWeatherTime(time)
-}
-
-function formatTemperature(temperature) {
-  if (temperature == null) return '--'
-  return `${Math.round(temperature)}°`
-}
-
-function formatWind(speed) {
-  if (speed == null) return '--'
-  return `${speed} m/s`
-}
-
-onMounted(async () => {
+async function loadCity(place) {
+  city.value = place
+  searchText.value = place.displayName || place.name
+  const id = ++requestId
   loading.value = true
   errorMessage.value = ''
-
+  currentWeather.value = null
   try {
-    const [current, forecastResponse] = await Promise.all([
-      getCurrentWeather(
-        city.value.latitude,
-        city.value.longitude
-      ),
-      getForecastWeather(
-        city.value.latitude,
-        city.value.longitude
-      )
-    ])
-
-    currentWeather.value = current
-
-    forecast.value = Array.isArray(forecastResponse)
-      ? forecastResponse
-      : forecastResponse.data ?? []
+    const params = { latitude: String(place.latitude), longitude: String(place.longitude) }
+    const [current, forecastResponse] = await Promise.all([api.get('/weather/current', { params }), api.get('/weather/forecast', { params })])
+    if (id !== requestId) return
+    currentWeather.value = current.data
+    forecast.value = Array.isArray(forecastResponse.data) ? forecastResponse.data : forecastResponse.data.data ?? []
   } catch (error) {
-    console.error('Error hvile getting weather data', error)
-    errorMessage.value = 'Couldnt get weather data. Please try again'
+    console.error('Failed to load weather', error)
+    if (id === requestId) errorMessage.value = 'Could not get weather data. Please try again.'
   } finally {
-    loading.value = false
+    if (id === requestId) loading.value = false
   }
-})
+}
+
+onMounted(() => loadCity(city.value))
+function formatTemperature(value) { return value == null ? '—' : `${Math.round(value)}°` }
 </script>
 
 <template>
-  <main class="min-h-screen bg-slate-50 p-4 text-slate-800 sm:p-6 lg:p-8">
-
+  <main class="min-h-screen p-4 text-slate-800 sm:p-6 lg:p-8">
     <div class="mx-auto max-w-5xl">
-
-      <header class="mb-6">
-        <p class="text-sm font-medium text-slate-500">
-          Norway Weather
-        </p>
-
-        <h1 class="mt-1 text-2xl font-semibold tracking-tight text-slate-900">
-          {{ city.name }}
-        </h1>
-      </header>
-
-      <div
-        v-if="loading"
-        class="rounded-2xl bg-white p-8 text-center shadow-sm ring-1 ring-slate-200"
-      >
-        <p class="animate-pulse text-slate-500">
-          Get weather data...
-        </p>
-      </div>
-
-      <div
-        v-else-if="errorMessage"
-        class="rounded-2xl bg-white p-6 text-rose-700 shadow-sm ring-1 ring-slate-200"
-      >
-        {{ errorMessage }}
-      </div>
-
+      <header class="mb-6"><p class="text-sm font-medium text-slate-500">Norway Weather</p><h1 class="mt-1 text-2xl font-semibold tracking-tight text-slate-900">{{ city.name }} weather</h1><p class="mt-1 text-sm text-slate-500">Search for a city or place to see its weather.</p></header>
+      <div class="mb-5"><LocationSearch v-model="searchText" placeholder="Search for a city or place" @select="loadCity" /></div>
+      <div v-if="loading" class="rounded-2xl bg-white p-8 text-center text-slate-500 shadow-sm ring-1 ring-slate-200" role="status">Loading weather…</div>
+      <div v-else-if="errorMessage" class="rounded-2xl bg-white p-6 text-rose-700 shadow-sm ring-1 ring-slate-200" role="alert">{{ errorMessage }}</div>
       <template v-else-if="currentWeather">
-
-        <section
-          class="rounded-2xl bg-gradient-to-br from-sky-600 to-blue-700 p-6 text-white shadow-sm sm:p-8"
-        >
-          <div class="flex items-center justify-between gap-4 pt-5 pb-5">
-
-            <div>
-              <p class="text-lg text-blue-100">
-                Current Weather
-              </p>
-
-              <p class="mt-3 text-6xl font-bold">
-                {{ formatTemperature(currentWeather.temperature) }}
-              </p>
-
-       
-            </div>
-
-            <div class="text-7xl md:text-8xl">
-              {{ getWeatherEmoji(currentWeather.weatherSymbol) }}
-            </div>
-
-          </div>
-        </section>
-
-        <section class="mt-5 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6">
-
-          <h2 class="mb-5 text-lg font-bold">
-            Forecast
-          </h2>
-
-          <div
-            v-if="forecast.length"
-            class="flex gap-5 overflow-x-auto pb-3"
-          >
-            <article
-              v-for="(item, index) in forecast"
-              :key="item.time ?? index"
-              class="flex min-w-24 flex-col items-center gap-3 rounded-xl bg-sky-50 px-4 py-5"
-            >
-              <p class="text-sm text-slate-500">
-                {{ formatHour(item.time) }}
-              </p>
-
-              <span class="text-3xl">
-                {{ getWeatherEmoji(item.weatherSymbol) }}
-              </span>
-
-              <p class="text-lg font-bold">
-                {{ formatTemperature(item.temperature) }}
-              </p>
-
-              <p
-                v-if="item.windSpeed != null"
-                class="text-xs text-slate-500"
-              >
-                {{ formatWind(item.windSpeed) }}
-              </p>
-            </article>
-          </div>
-
-          <p v-else class="text-sm text-slate-500">
-            No forecasts available
-          </p>
-
-        </section>
-
-        <section class="mt-5 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6">
-
-          <h2 class="mb-5 text-lg font-bold">
-            Condition
-          </h2>
-
-          <div class="grid grid-cols-2 gap-6 md:grid-cols-3">
-
-            <div class="rounded-xl bg-slate-50 p-4">
-              <p class="text-sm text-slate-500">
-                🌡️ Temperatur
-              </p>
-              <p class="mt-2 text-2xl font-bold">
-                {{ formatTemperature(currentWeather.temperature) }}
-              </p>
-            </div>
-
-            <div class="rounded-xl bg-slate-50 p-4">
-              <p class="text-sm text-slate-500">
-                💨 Wind
-              </p>
-              <p class="mt-2 text-2xl font-bold">
-                {{ formatWind(currentWeather.windSpeed) }}
-              </p>
-            </div>
-
-            <div class="rounded-xl bg-slate-50 p-4">
-              <p class="text-sm text-slate-500">
-                ☁️ Symbol
-              </p>
-              <p class="mt-2 text-lg font-bold">
-                {{ currentWeather.weatherSymbol || 'Ukjent' }}
-              </p>
-            </div>
-
-          </div>
-
-        </section>
-
+        <section class="rounded-2xl bg-gradient-to-br from-sky-600 to-blue-700 p-6 text-white shadow-sm sm:p-8"><div class="flex items-center justify-between gap-4"><div><p class="text-lg text-blue-100">Current weather</p><p class="mt-3 text-6xl font-bold">{{ formatTemperature(currentWeather.temperature) }}</p><p class="mt-2 text-blue-100">{{ currentWeather.weatherSymbol }}</p></div><div class="text-7xl" aria-hidden="true">{{ getWeatherEmoji(currentWeather.weatherSymbol) }}</div></div></section>
+        <section class="mt-5 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6"><h2 class="mb-5 text-lg font-bold">Forecast</h2><div v-if="forecast.length" class="flex gap-4 overflow-x-auto pb-3"><article v-for="(item, index) in forecast" :key="item.time ?? index" class="flex min-w-24 flex-col items-center gap-3 rounded-xl bg-sky-50 px-4 py-5"><p class="text-sm text-slate-500">{{ formatWeatherTime(item.time) }}</p><span class="text-3xl">{{ getWeatherEmoji(item.weatherSymbol) }}</span><p class="text-lg font-bold">{{ formatTemperature(item.temperature) }}</p><p v-if="item.windSpeed != null" class="text-xs text-slate-500">{{ item.windSpeed }} m/s</p></article></div><p v-else class="text-sm text-slate-500">No forecasts available</p></section>
+        <section class="mt-5 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-6"><h2 class="mb-5 text-lg font-bold">Conditions</h2><dl class="grid grid-cols-2 gap-4 sm:grid-cols-3"><div class="rounded-xl bg-slate-50 p-4"><dt class="text-sm text-slate-500">Temperature</dt><dd class="mt-2 text-2xl font-bold">{{ formatTemperature(currentWeather.temperature) }}</dd></div><div class="rounded-xl bg-slate-50 p-4"><dt class="text-sm text-slate-500">Wind</dt><dd class="mt-2 text-2xl font-bold">{{ currentWeather.windSpeed == null ? '—' : `${currentWeather.windSpeed} m/s` }}</dd></div><div class="rounded-xl bg-slate-50 p-4"><dt class="text-sm text-slate-500">Humidity</dt><dd class="mt-2 text-2xl font-bold">{{ currentWeather.humidity == null ? '—' : `${currentWeather.humidity}%` }}</dd></div></dl></section>
       </template>
-
     </div>
   </main>
 </template>

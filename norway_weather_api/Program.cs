@@ -94,6 +94,18 @@ builder.Services.AddHttpClient<IWeatherService, WeatherService>(
             $"norway_weather_api/1.0 (contact: {email})");
     });
 
+builder.Services.AddHttpClient<IGeocodingService, GeocodingService>(
+    client =>
+    {
+        client.BaseAddress = new Uri(
+            "https://nominatim.openstreetmap.org/");
+
+        client.DefaultRequestHeaders.UserAgent.ParseAdd(
+        $"norway_weather_api/1.0 (contact: {email})");
+
+        client.Timeout = TimeSpan.FromSeconds(10);
+    });
+
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 

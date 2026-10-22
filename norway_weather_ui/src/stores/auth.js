@@ -2,31 +2,24 @@ import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import api from '../services/api'
 
-const TOKEN_KEY = 'auth_token'
-
 export const useAuthStore = defineStore('auth', () => {
-  const token = ref(localStorage.getItem(TOKEN_KEY))
   const user = ref(null)
   const loading = ref(false)
-  const isAuthenticated = computed(() => Boolean(token.value && user.value))
+  const isAuthenticated = computed(() => Boolean(user.value))
   let initialization
 
   function clearAuth() {
-    token.value = null
     user.value = null
-    localStorage.removeItem(TOKEN_KEY)
   }
 
   async function login(email, password) {
     loading.value = true
     try {
-      const { data } = await api.post('/auth/login', { email, password })
-      token.value = data.token
-      localStorage.setItem(TOKEN_KEY, data.token)
+      await api.post('/auth/login', { email, password })
       await fetchCurrentUser()
       return user.value
     } catch (error) {
-      if (error.response?.status !== 401) clearAuth()
+      clearAuth()
       throw error
     } finally {
       loading.value = false
@@ -49,7 +42,6 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   function initializeAuth() {
-    if (!token.value) return Promise.resolve()
     if (!initialization) {
       initialization = fetchCurrentUser()
         .catch((error) => {
@@ -63,12 +55,17 @@ export const useAuthStore = defineStore('auth', () => {
     return initialization
   }
 
-  function logout() {
-    clearAuth()
+  async function logout() {
+    try {
+      await api.post('/auth/logout')
+    } catch {
+      // Clear local UI state even when the server cannot be reached.
+    } finally {
+      clearAuth()
+    }
   }
 
   return {
-    token,
     user,
     loading,
     isAuthenticated,

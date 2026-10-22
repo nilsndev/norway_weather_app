@@ -11,13 +11,19 @@ namespace norway_weather_api.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
+        private const string AuthCookieName = "norway_weather_auth";
         private readonly IAuthService _authService;
         private readonly ITokenService _tokenService;
+        private readonly IWebHostEnvironment _environment;
 
-        public AuthController(IAuthService authService, ITokenService tokenService)
+        public AuthController(
+            IAuthService authService,
+            ITokenService tokenService,
+            IWebHostEnvironment environment)
         {
             _authService = authService;
             _tokenService = tokenService;
+            _environment = environment;
         }
 
         [HttpPost("register")]
@@ -42,11 +48,16 @@ namespace norway_weather_api.Controllers
             }
 
             var token = _tokenService.CreateToken(user);
+            Response.Cookies.Append(AuthCookieName, token, CreateCookieOptions());
 
-            return Ok(new
-            {
-                token
-            });
+            return NoContent();
+        }
+
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete(AuthCookieName, CreateCookieOptions());
+            return NoContent();
         }
 
         [Authorize]
@@ -66,5 +77,15 @@ namespace norway_weather_api.Controllers
                 user.Email
             });
         }
+
+        private CookieOptions CreateCookieOptions() => new()
+        {
+            HttpOnly = true,
+            Secure = !_environment.IsDevelopment(),
+            SameSite = SameSiteMode.Lax,
+            Path = "/api",
+            IsEssential = true,
+            MaxAge = TimeSpan.FromHours(1)
+        };
     }
 }

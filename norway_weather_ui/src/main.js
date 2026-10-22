@@ -7,6 +7,9 @@ import { setUnauthorizedHandler } from './services/api'
 import { useAuthStore } from './stores/auth'
 import './style.css'
 
+// Remove the legacy bearer token once; authentication now uses an HttpOnly cookie.
+localStorage.removeItem('auth_token')
+
 const app = createApp(App)
 const pinia = createPinia()
 

@@ -5,7 +5,6 @@ using norway_weather_api.Data;
 using Microsoft.AspNetCore.Identity;
 using norway_weather_api.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
@@ -13,6 +12,10 @@ using Microsoft.OpenApi;
 Env.Load();
 
 var builder = WebApplication.CreateBuilder(args);
+
+var jwtKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
+    ?? throw new InvalidOperationException("JWT_SECRET_KEY is missing.");
+
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(options =>
@@ -23,15 +26,6 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1"
     });
 
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Type = SecuritySchemeType.Http,
-        Scheme = "bearer",
-        BearerFormat = "JWT",
-        Description = "Paste JWT-token from /api/auth/login."
-    });
-
-    options.OperationFilter<JwtSecurityOperationFilter>();
 });
 
 builder.Services.AddMemoryCache();
@@ -60,8 +54,16 @@ builder.Services
     })
     .AddJwtBearer(options =>
     {
-        options.SaveToken = true;
+        options.SaveToken = false;
         options.RequireHttpsMetadata = false;
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                context.Token = context.Request.Cookies["norway_weather_auth"];
+                return Task.CompletedTask;
+            }
+        };
         options.TokenValidationParameters =
             new TokenValidationParameters
             {
@@ -74,7 +76,7 @@ builder.Services
                 ValidAudience = builder.Configuration["Jwt:Audience"],
 
                 IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!)
+                    Convert.FromBase64String(jwtKey)
                 )
             };
 
@@ -109,14 +111,19 @@ builder.Services.AddHttpClient<IGeocodingService, GeocodingService>(
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
+var allowedOrigins = builder.Configuration
+    .GetSection("Cors:AllowedOrigins")
+    .Get<string[]>() ?? ["http://localhost:3000", "http://localhost:5173"];
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("VueApp", policy =>
     {
         policy
-            .WithOrigins("http://localhost:3000", "http://localhost:5173")
+            .WithOrigins(allowedOrigins)
             .AllowAnyHeader()
-            .AllowAnyMethod();
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
@@ -131,9 +138,31 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseCors("VueApp");
+
+app.Use(async (context, next) =>
+{
+    var isUnsafeMethod = HttpMethods.IsPost(context.Request.Method)
+        || HttpMethods.IsPut(context.Request.Method)
+        || HttpMethods.IsPatch(context.Request.Method)
+        || HttpMethods.IsDelete(context.Request.Method);
+    var origin = context.Request.Headers.Origin.ToString();
+
+    if (isUnsafeMethod
+        && !string.IsNullOrEmpty(origin)
+        && !allowedOrigins.Contains(origin, StringComparer.OrdinalIgnoreCase))
+    {
+        context.Response.StatusCode = StatusCodes.Status403Forbidden;
+        return;
+    }
+
+    await next();
+});
 
 app.UseAuthentication();
 app.UseAuthorization();

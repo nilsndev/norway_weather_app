@@ -23,8 +23,11 @@ namespace norway_weather_api.Services
                 new Claim(ClaimTypes.Email, user.Email!)
             };
 
+            var jwtKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
+                ?? throw new InvalidOperationException("JWT_SECRET_KEY is missing.");
+
             var key = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!)
+                Convert.FromBase64String(jwtKey)
             );
 
             var credentials = new SigningCredentials(

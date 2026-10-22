@@ -11,6 +11,8 @@ namespace norway_weather_api.Services
         private readonly HttpClient _httpClient;
         private readonly IMemoryCache _cache;
 
+
+
         private static readonly TimeSpan CacheDuration = TimeSpan.FromMinutes(25);
 
         public WeatherService(HttpClient httpClient, IMemoryCache cache)
@@ -59,6 +61,9 @@ namespace norway_weather_api.Services
 
             var cached = _cache.Get<List<WeatherResponseDto>>(cacheKey);
 
+
+            
+
             if (cached is not null)
                 return cached;
 
@@ -89,8 +94,10 @@ namespace norway_weather_api.Services
                 {
                     AbsoluteExpirationRelativeToNow = CacheDuration
                 });
-
             return forecasts;
+
+          
+        
         }
 
         private static WeatherResponseDto MapForecast(JsonElement forecast)

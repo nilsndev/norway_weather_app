@@ -1,5 +1,7 @@
 .env
 
+checkbuild/
+
 .vs/
 **/.vs/
 
@@ -8,3 +10,7 @@
 
 *.user
 *.suo
+
+.claudeignore
+.copilotignore
+.cursorignore

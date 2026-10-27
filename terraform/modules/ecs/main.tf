@@ -100,6 +100,10 @@ resource "aws_ecs_service" "backend" {
   desired_count   = var.desired_count
   launch_type     = "FARGATE"
 
+  ifecycle {
+    ignore_changes = [task_definition]
+  }
+
   network_configuration {
     subnets          = var.app_subnet_ids
     security_groups  = [var.ecs_security_group_id]
@@ -121,5 +125,3 @@ resource "aws_ecs_service" "backend" {
     Environment = var.environment
   }
 }
- 
-

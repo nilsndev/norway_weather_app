@@ -60,3 +60,35 @@ resource "aws_iam_role_policy" "ecs_task_execution_secrets" {
     ]
   })
 }
+
+resource "aws_iam_role_policy" "github_actions_ecr_push" {
+  name = "github-actions-ecr-push"
+  role = "GitHubActionsCICDAssumeRole"
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+
+    Statement = [
+      {
+        Sid      = "ECRAuthorizationToken"
+        Effect   = "Allow"
+        Action   = ["ecr:GetAuthorizationToken"]
+        Resource = "*"
+      },
+      {
+        Sid    = "ECRPushImage"
+        Effect = "Allow"
+
+        Action = [
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:InitiateLayerUpload",
+          "ecr:UploadLayerPart",
+          "ecr:CompleteLayerUpload",
+          "ecr:PutImage"
+        ]
+
+        Resource = "arn:aws:ecr:eu-central-1:714781437459:repository/norway-weather-app-development-backend"
+      }
+    ]
+  })
+}

@@ -10,6 +10,9 @@ module "iam" {
 
   project_name = var.project_name
   environment  = var.environment
+
+  jwt_secret_arn = var.jwt_secret_arn
+  db_secret_arn  = module.database.db_secret_arn
 }
 
 module "ecr" {

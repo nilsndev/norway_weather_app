@@ -57,3 +57,5 @@ crash.*.log
 **/override.tf.json
 **/*_override.tf
 **/*_override.tf.json
+
+/docs

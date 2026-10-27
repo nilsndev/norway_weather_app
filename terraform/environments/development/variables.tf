@@ -23,3 +23,8 @@ variable "jwt_secret_arn" {
   description = "ARN til JWT-secret i AWS Secrets Manager"
   type        = string
 }
+
+variable "postgres_connection_string_secret_arn" {
+  description = "ARN of the PostgreSQL connection string in AWS Secrets Manager"
+  type        = string
+}

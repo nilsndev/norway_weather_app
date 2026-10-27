@@ -76,6 +76,11 @@ variable "jwt_secret_arn" {
   type        = string
 }
 
+variable "postgres_connection_string_secret_arn" {
+  description = "ARN of the PostgreSQL connection string in AWS Secrets Manager"
+  type        = string
+}
+
 variable "task_cpu" {
   description = "Fargate task CPU units"
   type        = number
@@ -87,7 +92,7 @@ variable "task_memory" {
   type        = number
   default     = 512
 }
-
+ 
 variable "desired_count" {
   description = "Desired number of backend tasks"
   type        = number

@@ -88,6 +88,38 @@ resource "aws_iam_role_policy" "github_actions_ecr_push" {
         ]
 
         Resource = "arn:aws:ecr:eu-central-1:714781437459:repository/norway-weather-app-development-backend"
+      },
+      {
+        Sid      = "DescribeBackendTaskDefinition"
+        Effect   = "Allow"
+        Action   = ["ecs:DescribeTaskDefinition"]
+        Resource = "*"
+      },
+      {
+        Sid    = "RegisterBackendTaskDefinition"
+        Effect = "Allow"
+        Action = ["ecs:RegisterTaskDefinition"]
+        Resource = "arn:aws:ecs:eu-central-1:714781437459:task-definition/norway-weather-app-development-backend:*"
+      },
+      {
+        Sid    = "UpdateBackendService"
+        Effect = "Allow"
+        Action = ["ecs:UpdateService"]
+        Resource = "arn:aws:ecs:eu-central-1:714781437459:service/norway-weather-app-development-cluster/norway-weather-app-development-backend"
+      },
+      {
+        Sid    = "PassEcsTaskRoles"
+        Effect = "Allow"
+        Action = ["iam:PassRole"]
+        Resource = [
+          "arn:aws:iam::714781437459:role/norway-weather-app-development-ecs-execution-role",
+          "arn:aws:iam::714781437459:role/norway-weather-app-development-ecs-task-role"
+        ]
+        Condition = {
+          StringLike = {
+            "iam:PassedToService" = "ecs-tasks.amazonaws.com"
+          }
+        }
       }
     ]
   })

@@ -54,7 +54,9 @@ resource "aws_iam_role_policy" "ecs_task_execution_secrets" {
 
         Resource = [
           var.db_secret_arn,
-          var.jwt_secret_arn
+          var.jwt_secret_arn,
+          var.postgres_connection_string_secret_arn,
+          var.metno_contact_email_secret_arn
         ]
       }
     ]

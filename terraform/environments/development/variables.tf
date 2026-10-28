@@ -33,3 +33,8 @@ variable "metno_contact_email_secret_arn" {
   description = "ARN of the MET Norway contact email secret in AWS Secrets Manager"
   type        = string
 }
+
+variable "cloudfront_domain_secret_arn" {
+  description = "ARN of the CloudFront origin value in AWS Secrets Manager"
+  type        = string
+}

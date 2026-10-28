@@ -82,6 +82,10 @@ resource "aws_ecs_task_definition" "backend" {
           name      = "METNO_CONTACT_EMAIL"
           valueFrom = var.metno_contact_email_secret_arn
         },
+        {
+          name      = "Cors__AllowedOrigins__0"
+          valueFrom = var.cloudfront_domain_secret_arn
+        },
       ]
 
       logConfiguration = {

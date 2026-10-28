@@ -15,6 +15,7 @@ module "iam" {
   db_secret_arn                         = module.database.db_secret_arn
   postgres_connection_string_secret_arn = var.postgres_connection_string_secret_arn
   metno_contact_email_secret_arn        = var.metno_contact_email_secret_arn
+  cloudfront_domain_secret_arn          = var.cloudfront_domain_secret_arn
 }
 
 module "ecr" {
@@ -71,6 +72,7 @@ module "ecs" {
   jwt_secret_arn                        = var.jwt_secret_arn
   postgres_connection_string_secret_arn = var.postgres_connection_string_secret_arn
   metno_contact_email_secret_arn        = var.metno_contact_email_secret_arn
+  cloudfront_domain_secret_arn          = var.cloudfront_domain_secret_arn
 }
 
 

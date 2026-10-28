@@ -103,3 +103,8 @@ variable "desired_count" {
   type        = number
   default     = 1
 }
+
+variable "cloudfront_domain_secret_arn" {
+  description = "ARN of the Secrets Manager secret containing the CloudFront domain"
+  type        = string
+}

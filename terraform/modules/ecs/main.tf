@@ -75,8 +75,8 @@ resource "aws_ecs_task_definition" "backend" {
           valueFrom = var.jwt_secret_arn
         },
         {
-           name      = "POSTGRES_CONNECTION_STRING"
-           valueFrom = var.postgres_connection_string_secret_arn
+          name      = "POSTGRES_CONNECTION_STRING"
+          valueFrom = var.postgres_connection_string_secret_arn
         },
         {
           name      = "METNO_CONTACT_EMAIL"

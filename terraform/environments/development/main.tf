@@ -11,10 +11,10 @@ module "iam" {
   project_name = var.project_name
   environment  = var.environment
 
-  jwt_secret_arn = var.jwt_secret_arn
-  db_secret_arn  = module.database.db_secret_arn
+  jwt_secret_arn                        = var.jwt_secret_arn
+  db_secret_arn                         = module.database.db_secret_arn
   postgres_connection_string_secret_arn = var.postgres_connection_string_secret_arn
-  metno_contact_email_secret_arn = var.metno_contact_email_secret_arn
+  metno_contact_email_secret_arn        = var.metno_contact_email_secret_arn
 }
 
 module "ecr" {
@@ -68,9 +68,9 @@ module "ecs" {
   db_name       = module.database.db_name
   db_secret_arn = module.database.db_secret_arn
 
-  jwt_secret_arn = var.jwt_secret_arn
+  jwt_secret_arn                        = var.jwt_secret_arn
   postgres_connection_string_secret_arn = var.postgres_connection_string_secret_arn
-  metno_contact_email_secret_arn = var.metno_contact_email_secret_arn
+  metno_contact_email_secret_arn        = var.metno_contact_email_secret_arn
 }
 
 
@@ -79,6 +79,7 @@ module "frontend" {
 
   project_name = var.project_name
   environment  = var.environment
+  alb_dns_name = module.alb.alb_dns_name
 }
 
 

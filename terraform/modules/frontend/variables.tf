@@ -8,3 +8,8 @@ variable "environment" {
   description = "Deployment environment"
   type        = string
 }
+
+variable "alb_dns_name" {
+  description = "DNS name of the ALB used as the API origin"
+  type        = string
+}

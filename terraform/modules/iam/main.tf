@@ -98,15 +98,15 @@ resource "aws_iam_role_policy" "github_actions_ecr_push" {
         Resource = "*"
       },
       {
-        Sid    = "RegisterBackendTaskDefinition"
-        Effect = "Allow"
-        Action = ["ecs:RegisterTaskDefinition"]
+        Sid      = "RegisterBackendTaskDefinition"
+        Effect   = "Allow"
+        Action   = ["ecs:RegisterTaskDefinition"]
         Resource = "arn:aws:ecs:eu-central-1:714781437459:task-definition/norway-weather-app-development-backend:*"
       },
       {
-        Sid    = "UpdateBackendService"
-        Effect = "Allow"
-        Action = ["ecs:UpdateService"]
+        Sid      = "UpdateBackendService"
+        Effect   = "Allow"
+        Action   = ["ecs:UpdateService"]
         Resource = "arn:aws:ecs:eu-central-1:714781437459:service/norway-weather-app-development-cluster/norway-weather-app-development-backend"
       },
       {

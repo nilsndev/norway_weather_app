@@ -13,6 +13,7 @@ module "iam" {
 
   jwt_secret_arn = var.jwt_secret_arn
   db_secret_arn  = module.database.db_secret_arn
+  postgres_connection_string_secret_arn = var.postgres_connection_string_secret_arn
 }
 
 module "ecr" {
@@ -67,6 +68,7 @@ module "ecs" {
   db_secret_arn = module.database.db_secret_arn
 
   jwt_secret_arn = var.jwt_secret_arn
+  postgres_connection_string_secret_arn = var.postgres_connection_string_secret_arn
 }
 
 

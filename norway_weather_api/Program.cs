@@ -138,11 +138,6 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-if (!app.Environment.IsDevelopment())
-{
-    app.UseHttpsRedirection();
-}
-
 app.UseCors("VueApp");
 
 app.Use(async (context, next) =>

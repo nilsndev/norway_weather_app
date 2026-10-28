@@ -140,24 +140,25 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("VueApp");
 
-app.Use(async (context, next) =>
-{
-    var isUnsafeMethod = HttpMethods.IsPost(context.Request.Method)
-        || HttpMethods.IsPut(context.Request.Method)
-        || HttpMethods.IsPatch(context.Request.Method)
-        || HttpMethods.IsDelete(context.Request.Method);
-    var origin = context.Request.Headers.Origin.ToString();
-
-    if (isUnsafeMethod
-        && !string.IsNullOrEmpty(origin)
-        && !allowedOrigins.Contains(origin, StringComparer.OrdinalIgnoreCase))
-    {
-        context.Response.StatusCode = StatusCodes.Status403Forbidden;
-        return;
-    }
-
-    await next();
-});
+// app.Use(async (context, next) =>
+// {
+//     var isUnsafeMethod = HttpMethods.IsPost(context.Request.Method)
+//         || HttpMethods.IsPut(context.Request.Method)
+//         || HttpMethods.IsPatch(context.Request.Method)
+//         || HttpMethods.IsDelete(context.Request.Method);
+//
+//     var origin = context.Request.Headers.Origin.ToString();
+//
+//     if (isUnsafeMethod
+//         && !string.IsNullOrEmpty(origin)
+//         && !allowedOrigins.Contains(origin, StringComparer.OrdinalIgnoreCase))
+//     {
+//         context.Response.StatusCode = StatusCodes.Status403Forbidden;
+//         return;
+//     }
+//
+//     await next();
+// });
 
 app.UseAuthentication();
 app.UseAuthorization();

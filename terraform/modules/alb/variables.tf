@@ -27,5 +27,5 @@ variable "vpc_id" {
 variable "health_check_path" {
   description = "Backend health check endpoint"
   type        = string
-  default     = "/"
+  default     = "/health"
 }

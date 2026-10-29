@@ -113,6 +113,74 @@ jobs:
             --output text > task-definition-arn.txt
           echo "TASK_DEFINITION_ARN=$(cat task-definition-arn.txt)" >> "$GITHUB_ENV"
 
+      
+      - name: Run EF Core database migrations
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
+        run: |
+          cluster="norway-weather-app-development-cluster"
+          service="norway-weather-app-development-backend"
+
+          # Get the network configuration used by the ECS service.
+          network_config="$(aws ecs describe-services \
+            --cluster "$cluster" \
+            --services "$service" \
+            --query 'services[0].networkConfiguration' \
+            --output json)"
+
+          if [ "$network_config" = "null" ] || [ -z "$network_config" ]; then
+            echo "Could not retrieve ECS network configuration."
+            exit 1
+          fi
+
+          # Start one migration task using the new backend image.
+          task_arn="$(aws ecs run-task \
+            --cluster "$cluster" \
+            --task-definition "$TASK_DEFINITION_ARN" \
+            --launch-type FARGATE \
+            --network-configuration "$network_config" \
+            --overrides '{
+              "containerOverrides": [
+                {
+                  "name": "backend",
+                  "environment": [
+                    {
+                      "name": "RUN_MIGRATIONS",
+                      "value": "true"
+                    }
+                  ]
+                }
+              ]
+            }' \
+            --query 'tasks[0].taskArn' \
+            --output text)"
+
+          if [ -z "$task_arn" ] || [ "$task_arn" = "None" ]; then
+            echo "Failed to start migration task."
+            exit 1
+          fi
+
+          echo "Started migration task: $task_arn"
+
+          aws ecs wait tasks-stopped \
+            --cluster "$cluster" \
+            --tasks "$task_arn"
+
+          exit_code="$(aws ecs describe-tasks \
+            --cluster "$cluster" \
+            --tasks "$task_arn" \
+            --query "tasks[0].containers[?name=='backend'].exitCode | [0]" \
+            --output text)"
+
+          if [ "$exit_code" != "0" ]; then
+            echo "Database migration failed. Exit code: $exit_code"
+            echo "Check the ECS task and CloudWatch logs."
+            exit 1
+          fi
+
+          echo "Database migrations completed successfully."
+
+
       - name: Deploy backend to ECS
         run: |
           aws ecs update-service \

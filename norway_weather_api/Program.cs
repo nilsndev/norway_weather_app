@@ -138,6 +138,18 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+if (Environment.GetEnvironmentVariable("RUN_MIGRATIONS") == "true")
+{
+    await using var scope = app.Services.CreateAsyncScope();
+
+    var db = scope.ServiceProvider
+        .GetRequiredService<ApplicationDbContext>();
+
+    await db.Database.MigrateAsync();
+
+    return;
+}
+
 app.UseCors("VueApp");
 
 // app.Use(async (context, next) =>

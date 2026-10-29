@@ -18,7 +18,6 @@ let requestId = 0
 async function loadCity(place) {
   if (!isNorwayLocation(place.latitude, place.longitude)) { errorMessage.value = t('outsideArea'); return }
   city.value = place
-  searchText.value = place.displayName || place.name
   const id = ++requestId
   loading.value = true
   errorMessage.value = ''

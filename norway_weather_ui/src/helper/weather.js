@@ -1,4 +1,8 @@
-export function getWeatherEmoji(symbol) {
+﻿export function getWeatherEmoji(symbol) {
+  const condition = symbol?.split('_')[0]
+
+  if (condition?.startsWith('heavyrain')) return '🌧️🌧️'
+
   switch (symbol) {
     case 'clearsky_day': return '☀️'
     case 'clearsky_night': return '🌙'

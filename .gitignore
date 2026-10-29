@@ -6,6 +6,8 @@
 DOCKER.md
 /norway_weather_ui/README.md
 
+certs/
+
 checkbuild/
 .vs/
 **/.vs/

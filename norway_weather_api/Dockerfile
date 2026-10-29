@@ -17,6 +17,9 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
+RUN mkdir -p /app/certs
+COPY certs/global-bundle.pem /app/certs/global-bundle.pem
+
 EXPOSE 8080
 
 ENTRYPOINT ["dotnet", "norway_weather_api.dll"]

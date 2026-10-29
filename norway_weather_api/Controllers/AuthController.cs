@@ -32,7 +32,7 @@ namespace norway_weather_api.Controllers
         {
             var result = await _authService.RegisterAsync(request);
 
-            if (!result.Succeeded)
+            if (!result.Succeeded)    
             {
                 var errors = result.Errors.Select(error => new
                 {

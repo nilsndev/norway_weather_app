@@ -35,6 +35,28 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
   signing_protocol                  = "sigv4"
 }
 
+# Vue Router uses history mode, so paths such as /cities must serve the SPA shell.
+# Rewrite extensionless frontend paths to index.html while leaving assets alone.
+resource "aws_cloudfront_function" "spa_routes" {
+  name    = "${var.project_name}-${var.environment}-spa-routes"
+  runtime = "cloudfront-js-2.0"
+  publish = true
+  comment = "Serve the Vue SPA shell for client-side routes"
+
+  code = <<-EOT
+    function handler(event) {
+      var request = event.request;
+      var uri = request.uri;
+
+      if (!uri.includes('.')) {
+        request.uri = '/index.html';
+      }
+
+      return request;
+    }
+  EOT
+}
+
 resource "aws_cloudfront_distribution" "frontend" {
   enabled             = true
   default_root_object = "index.html"
@@ -78,6 +100,11 @@ resource "aws_cloudfront_distribution" "frontend" {
     cached_methods  = ["GET", "HEAD"]
 
     compress = true
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.spa_routes.arn
+    }
 
     forwarded_values {
       query_string = false

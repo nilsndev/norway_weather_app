@@ -27,15 +27,27 @@ namespace norway_weather_api.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterRequestDto request)
+        public async Task<IActionResult> Register(
+            [FromBody] RegisterRequestDto request)
         {
             var result = await _authService.RegisterAsync(request);
-            if (!result)
+
+            if (!result.Succeeded)
             {
-                return BadRequest("Registration failed.");
+                var errors = result.Errors.Select(error => new
+                {
+                    error.Code,
+                    error.Description
+                });
+
+                return BadRequest(new
+                {
+                    message = "Registration failed.",
+                    errors
+                });
             }
 
-            return Ok("User registered successfully.");
+            return Ok(new { message = "User registered successfully." });
         }
 
         [HttpPost("login")]

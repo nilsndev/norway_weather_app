@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("norway_weather_api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2806df03459470a2aae84cecf606ebc368e6b6e6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c926ca9519645a9ef4c98bd5d915ce34cc1c5e0")]
 [assembly: System.Reflection.AssemblyProductAttribute("norway_weather_api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("norway_weather_api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

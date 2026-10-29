@@ -13,15 +13,15 @@ namespace norway_weather_api.Services
             _userManager = userManager;
         }
 
-        public async Task <bool> RegisterAsync(RegisterRequestDto request)
+        public async Task<IdentityResult> RegisterAsync(RegisterRequestDto request)
         {
             var user = new ApplicationUser
             {
                 UserName = request.Email,
                 Email = request.Email
             };
-            var result = await _userManager.CreateAsync(user, request.Password);
-            return result.Succeeded;
+
+            return await _userManager.CreateAsync(user, request.Password);
         }
 
         public async Task<ApplicationUser?> LoginAsync(LoginRequestDto request)

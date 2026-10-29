@@ -19,7 +19,7 @@ public class GeocodingService : IGeocodingService
         CancellationToken cancellationToken = default)
     {
         var url =
-            $"search?format=jsonv2&limit=5&q={Uri.EscapeDataString(query)}";
+            $"search?format=jsonv2&countrycodes=no&addressdetails=1&limit=5&q={Uri.EscapeDataString(query)}";
 
         using var response = await _httpClient.GetAsync(
             url,
@@ -40,7 +40,8 @@ public class GeocodingService : IGeocodingService
                     CultureInfo.InvariantCulture),
                 Longitude = double.Parse(
                     result.Longitude,
-                    CultureInfo.InvariantCulture)
+                    CultureInfo.InvariantCulture),
+                CountryCode = result.Address?.CountryCode ?? "no"
             })
             .ToList();
     }
@@ -55,5 +56,14 @@ public class GeocodingService : IGeocodingService
 
         [JsonPropertyName("lon")]
         public string Longitude { get; set; } = string.Empty;
+
+        [JsonPropertyName("address")]
+        public NominatimAddress? Address { get; set; }
+    }
+
+    private class NominatimAddress
+    {
+        [JsonPropertyName("country_code")]
+        public string CountryCode { get; set; } = string.Empty;
     }
 }

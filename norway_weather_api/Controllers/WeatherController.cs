@@ -22,6 +22,13 @@ namespace norway_weather_api.Controllers
         public async Task<IActionResult> GetCurrentWeather(
             [FromQuery] WeatherRequestDto request)
         {
+            if (!WeatherAreaPolicy.Includes(
+                    request.Latitude!.Value,
+                    request.Longitude!.Value))
+            {
+                return BadRequest(new { message = "Location is outside the supported Norway area." });
+            }
+
             var weather = await _weatherService.GetCurrentWeatherAsync(
                 request.Latitude!.Value,
                 request.Longitude!.Value);
@@ -37,6 +44,13 @@ namespace norway_weather_api.Controllers
         public async Task<IActionResult> GetForecast(
             [FromQuery] WeatherRequestDto request)
         {
+            if (!WeatherAreaPolicy.Includes(
+                    request.Latitude!.Value,
+                    request.Longitude!.Value))
+            {
+                return BadRequest(new { message = "Location is outside the supported Norway area." });
+            }
+
             var forecast = await _weatherService.GetForecastAsync(
                 request.Latitude!.Value,
                 request.Longitude!.Value);

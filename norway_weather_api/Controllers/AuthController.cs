@@ -37,12 +37,13 @@ namespace norway_weather_api.Controllers
                 var errors = result.Errors.Select(error => new
                 {
                     error.Code,
-                    error.Description
                 });
 
                 return BadRequest(new
                 {
                     message = "Registration failed.",
+                    passwordLength = 6,
+                    requiredUniqueChars = 1,
                     errors
                 });
             }

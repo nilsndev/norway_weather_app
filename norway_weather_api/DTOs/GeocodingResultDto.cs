@@ -12,5 +12,7 @@ namespace norway_weather_api.DTOs
         
  
         public double Longitude { get; set; }
+
+        public string CountryCode { get; set; } = string.Empty;
     }
 }

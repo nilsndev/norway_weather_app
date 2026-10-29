@@ -76,7 +76,7 @@ resource "aws_ecs_task_definition" "backend" {
         },
         {
           name      = "POSTGRES_CONNECTION_STRING"
-          valueFrom = var.postgres_connection_string_secret_arn
+          valueFrom = "${var.postgres_connection_string_secret_arn}:vaeret/development/postgres-connection-string::"
         },
         {
           name      = "METNO_CONTACT_EMAIL"

@@ -111,6 +111,30 @@ resource "aws_iam_role_policy" "github_actions_ecr_push" {
         Resource = "arn:aws:ecs:eu-central-1:714781437459:service/norway-weather-app-development-cluster/norway-weather-app-development-backend"
       },
       {
+        Sid      = "DescribeBackendServiceForMigration"
+        Effect   = "Allow"
+        Action   = ["ecs:DescribeServices"]
+        Resource = "arn:aws:ecs:eu-central-1:714781437459:service/norway-weather-app-development-cluster/norway-weather-app-development-backend"
+      },
+      {
+        Sid      = "RunBackendMigrationTask"
+        Effect   = "Allow"
+        Action   = ["ecs:RunTask"]
+        Resource = "arn:aws:ecs:eu-central-1:714781437459:task-definition/norway-weather-app-development-backend:*"
+
+        Condition = {
+          ArnEquals = {
+            "ecs:cluster" = "arn:aws:ecs:eu-central-1:714781437459:cluster/norway-weather-app-development-cluster"
+          }
+        }
+      },
+      {
+        Sid      = "DescribeBackendMigrationTasks"
+        Effect   = "Allow"
+        Action   = ["ecs:DescribeTasks"]
+        Resource = "arn:aws:ecs:eu-central-1:714781437459:task/norway-weather-app-development-cluster/*"
+      },
+      {
         Sid    = "PassEcsTaskRoles"
         Effect = "Allow"
         Action = ["iam:PassRole"]

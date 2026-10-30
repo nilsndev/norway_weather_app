@@ -2,8 +2,6 @@
 
 A full-stack weather application for exploring current conditions and short-term forecasts across Norway. The app combines a Vue 3 interface with an ASP.NET Core API, weather data from MET Norway, place search from Nominatim, and Terraform definitions for an AWS deployment architecture.
 
-> The repository defines deployment workflows and AWS infrastructure, but this README does not assume that the AWS environment is currently running. No automated test suite is present in the repository at this time.
-
 ## Screenshots
 
 ### Home
@@ -72,7 +70,7 @@ flowchart LR
 
 The browser loads the single-page application through CloudFront. CloudFront serves static files from a private S3 origin and routes `/api/*` requests to the ALB. The ALB forwards traffic to the API running in ECS Fargate. The API uses PostgreSQL for ASP.NET Identity data and calls MET Norway and Nominatim through outbound network access. The API also caches forecast responses in process memory.
 
-The Terraform configuration creates the AWS resources shown in the diagram. GitHub Actions workflows define build and deployment steps. A successful deployment or currently running AWS environment is not implied.
+The Terraform configuration creates the AWS resources shown in the diagram. GitHub Actions workflows define build and deployment steps.
 
 ## Technology stack
 
@@ -160,7 +158,9 @@ The development environment composes the modules and passes outputs such as subn
 1. The frontend job installs locked npm dependencies, builds the Vite app, syncs the output to S3, and invalidates CloudFront.
 2. The backend job authenticates to AWS using GitHub OIDC, builds an image tagged with the commit SHA, pushes it to ECR, registers a task definition, runs EF Core migrations as an ECS task, then updates the ECS service.
 
-The workflow currently configures .NET 8 for CI while the backend project targets .NET 10. Align these versions before relying on the backend CI job. The repository does not include automated test jobs. Deployment depends on AWS resources and GitHub repository variables being configured; the workflow files alone do not confirm a successful deployment.
+The CI workflow currently uses .NET 8, while the backend targets .NET 10. Aligning these versions would ensure consistent build validation. The repository does not currently include automated test jobs.
+
+The CD workflow automates deployment of the frontend and backend to AWS using GitHub Actions and OIDC authentication. The application has been successfully deployed to AWS, including the ECS backend, RDS PostgreSQL database, database migrations, and frontend hosting through S3 and CloudFront. Deployment requires the corresponding AWS infrastructure, Secrets Manager values, and GitHub repository variables to be configured.
 
 ## Security
 
